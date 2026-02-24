@@ -17,6 +17,7 @@ EXIT_WORDS = {
 }
 
 WAQI_BASE_URL = "https://api.waqi.info/feed"
+WAQI_API_TOKEN = "YOUR_WAQI_API_TOKEN_HERE"
 
 SUMMARIZE_PROMPT = (
     "You are an air quality advisor. Given AQI data, provide a concise "
@@ -50,12 +51,11 @@ class AirQualityCheckerCapability(MatchingCapability):
                 "[AirQuality] Ability started"
             )
 
-            # Place your WAQI_API_KEY here
-            api_token = "place your api key here"
-            if not api_token:
+            api_token = WAQI_API_TOKEN.strip()
+            if not api_token or api_token == "YOUR_WAQI_API_TOKEN_HERE":
                 await self.capability_worker.speak(
                     "I need a WAQI API token to check air quality. "
-                    "Please set the WAQI_API_TOKEN environment variable. "
+                    "Please set WAQI_API_TOKEN in this ability's main.py. "
                     "You can get a free token at aqicn.org."
                 )
                 return

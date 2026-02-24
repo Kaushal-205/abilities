@@ -23,7 +23,7 @@ Fetches real-time air quality data from the World Air Quality Index (WAQI) API. 
 Requires a free WAQI API token:
 
 1. Register at https://aqicn.org/data-platform/token/
-2. Set the environment variable: `export WAQI_API_TOKEN=your_token_here`
+2. Edit `main.py` and replace `WAQI_API_TOKEN = "YOUR_WAQI_API_TOKEN_HERE"` with your token.
 
 ## Example Usage
 
